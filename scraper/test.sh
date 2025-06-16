@@ -5,7 +5,7 @@
 set -e
 
 # Default Configuration
-FUNCTION_NAME="scraper-2"
+FUNCTION_NAME="scraper-with-docker"
 
 # Colors for output
 RED='\033[0;31m'

@@ -5,11 +5,11 @@
 set -e
 
 # Default Configuration
-FUNCTION_NAME="scraper-2"
-REPOSITORY_NAME="faq-scraper-repo-2"
-RUNTIME="python3.12"
+FUNCTION_NAME="scraper-with-docker"
+REPOSITORY_NAME="scraper-with-docker-repo"
+RUNTIME="python3.13"
 TIMEOUT=400
-MEMORY=2048
+MEMORY=3008
 ROLE_NAME="sanjay-platform-role"
 
 # Colors for output
@@ -192,12 +192,12 @@ $AWS_CMD ecr get-login-password --region $REGION | docker login --username AWS -
 
 # Build Docker image
 echo_info "Building Docker image..."
-docker build -t $REPOSITORY_NAME:test .
+docker build -t $REPOSITORY_NAME:latest .
 
 # Tag and push Docker image
 echo_info "Tagging and pushing image to ECR..."
-docker tag $REPOSITORY_NAME:test $REPO_URI:test
-docker push $REPO_URI:test
+docker tag $REPOSITORY_NAME:latest $REPO_URI:latest
+docker push $REPO_URI:latest
 
 echo_info "Docker image pushed successfully ✅"
 
@@ -211,7 +211,7 @@ if $AWS_CMD lambda get-function --function-name $FUNCTION_NAME &>/dev/null; then
     # Update function code
     $AWS_CMD lambda update-function-code \
         --function-name $FUNCTION_NAME \
-        --image-uri $REPO_URI:test >/dev/null
+        --image-uri $REPO_URI:latest >/dev/null
     
     # Wait for code update
     echo_info "Waiting for function update..."
@@ -231,7 +231,7 @@ else
     $AWS_CMD lambda create-function \
         --function-name $FUNCTION_NAME \
         --package-type Image \
-        --code ImageUri $REPO_URI:test \
+        --code ImageUri=$REPO_URI:latest \
         --role $ROLE_ARN \
         --timeout $TIMEOUT \
         --memory-size $MEMORY \
