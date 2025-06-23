@@ -1,0 +1,25 @@
+#build the image 
+
+docker buildx build --platform linux/amd64 --provenance=false -t utah-faq-scraper . 
+
+#run it locally 
+
+docker run --rm --init --ipc=host --user pwuser --security-opt seccomp=seccomp_profile.json \
+  --entrypoint /usr/bin/python3 utah-faq-scraper /function/lambda_function.py
+
+
+
+# Test locally  without docker installed (use pip3 if pip is not recognized similarly python3)
+
+pip install -r requirements.txt
+python -m playwright install chromium
+python -m playwright install-deps chromium
+python lambda_function.py
+
+
+or 
+
+pip3 install -r requirements.txt
+python3 -m playwright install chromium
+python3 -m playwright install-deps chromium
+python3 lambda_function.py
