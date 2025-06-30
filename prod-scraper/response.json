@@ -1,0 +1,1 @@
+{"statusCode": 200, "body": {"message": "FAQ scraping completed successfully", "total_faqs_scraped": 44, "categories_processed": 6, "execution_time_seconds": 36.75, "s3_location": "s3://scrapping-test-123/faq-output/faq_data_20250627_220901.json", "errors_count": 0, "timestamp": "2025-06-27T22:09:01.938851+00:00"}}

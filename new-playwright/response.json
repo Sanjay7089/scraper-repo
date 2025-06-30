@@ -1,0 +1,196 @@
+{
+    "statusCode": 200,
+    "body": {
+        "faqs": {
+            "General": [
+                {
+                    "question": "What is Unclaimed Property?",
+                    "answer": "Unclaimed Property is unclaimed or abandoned intangible property. It represents a certain obligation a company is holding for another person or business. It includes checking and saving accounts, certificates of deposit, overpayments, insurance checks, payroll checks, utility refunds, money orders, un-cashed checks, dividends, stocks, bonds, contents of safe deposit boxes and more."
+                },
+                {
+                    "question": "How does property become unclaimed or abandoned and how can I prevent that from happening to me?",
+                    "answer": "Generally, if the property in question has not had any activity within a certain period of time, e.g., three years for most properties, and the holder is unable to locate the property owner, it is considered abandoned and must be reported to the Unclaimed Property Division of the State Treasurer's Office. To prevent your accounts from becoming unclaimed or abandoned, keep accounts active and make sure that you make a deposit or withdrawal, update your address, or contact your financial institution at least every three years."
+                }
+            ],
+            "Claiming Property": [
+                {
+                    "question": "Is there a deadline for making a claim?",
+                    "answer": "No. You can make a claim anytime since Unclaimed Property is kept in a custodial capacity until the rightful owner or heir can be found."
+                },
+                {
+                    "question": "Is there a charge or fee for this program?",
+                    "answer": "No."
+                },
+                {
+                    "question": "Can I fax the claim form?",
+                    "answer": "Yes, but we will still need the original form delivered to our office. We must have your original signature on the form in order to process payment."
+                },
+                {
+                    "question": "How do I claim for a deceased person?",
+                    "answer": "Provide documentation that shows your relationship or right to claim, e.g., an obituary or court documents listing you as the representative of the estate. If there is not a valid will or trust, we will follow Utah's intestate succession rules. If you're not sure you can claim, or want to claim just your portion, contact our office for help."
+                },
+                {
+                    "question": "Why do I need an obituary when claiming for a deceased person?",
+                    "answer": "The obituary usually lists surviving heirs. This may help in determining your eligibility to claim."
+                },
+                {
+                    "question": "Heirs can claim too!",
+                    "answer": "Lost items reported to the Unclaimed Property Division are held for the benefit of rightful owners, FOREVER. Even when someone dies before collecting their unclaimed property from the state the heirs can claim their portion.\n\nIn cases where the sole reported owner is deceased for more than three years and the will was not probated in district court then heirs may collect unclaimed property via Utah\u2019s intestacy (no validated will) rules. These rules are established by the Utah Legislature in Utah Code*.\n\nUnderstanding all of these various intestacy provisions can be difficult. Many of them are described like a computer program with many \u201cif/then\u201d statements. However, when you find the applicable \"if\" statements you can see who gets how much of the money. For example:\n\n\u2022 If only a surviving spouse survives the reported owner, that spouse gets 100% of the unclaimed property.\n\n\u2022 If only the children survive the reported owner, they get 100% of the unclaimed property, split equally among them.\n\n\u2022 If both a spouse and children of the reported owner survive:\n\n\u2022 if all the children are also children of the surviving spouse, that surviving spouse gets 100% of the unclaimed property.\n\n\u2022 if any of those children are children of a person other than the surviving spouse, the surviving spouse gets half of the unclaimed property; all the children of the reported owner that are not children of the surviving spouse equally split the other half.\n\n\u2022 If only the parent(s) of the reported owner survive, the parent(s) get 100% of the unclaimed property.\n\n\u2022 If neither spouse, nor issue, nor parents survive the reported owner, the unclaimed property goes (in the order listed) to: (1) brother(s) & sister(s) or their issue; (2) the grandparents or their issue.\n\nAs always, we recommend you submit your claim online with any supporting documentation you have to help us validate your right to the money. If we need more information from you we will let you know. Also, if you have any questions feel free to call our office at (801) 715-3300.\n\n* 75-3-107 an elective share of the surviving spouse is not applicable here."
+                },
+                {
+                    "question": "I just visited the web site and I'm not sure what to do.",
+                    "answer": "Search for your name, and if you find it and believe the property belongs to you, follow the instructions for filling out a claim online."
+                },
+                {
+                    "question": "I submitted a claim online, how do I get the status of my claim?",
+                    "answer": "You can enter your claim number on the site\u2019s \u201cCheck Your Claim Status\u201d page."
+                },
+                {
+                    "question": "Do I need a notary?",
+                    "answer": "Sometimes yes; it depends on the dollar amount of the claim and the type of item claimed. If your form includes a section asking for a notarized signature then it is needed. You are requested to both upload the executed form and also mail us the original to complete your file. Please contact our office if you have additional questions.\n\nIt depends on the complexity of your claim for the required processing time. If you are claiming as an heir or for a business it will take longer. More complex claims take more time and work. Some claims may take as long as 90 days. If you have not heard back from us within a few weeks, you may want to contact our office to check online to see the current status of your claim.\n\nClick here to check online: https://mycash.utah.gov/app/claim-status-search"
+                },
+                {
+                    "question": "Additional questions?",
+                    "answer": "If you don't understand what we're requesting, or need assistance of any kind, please contact our office and we'll be happy to help. Call (801) 715-3300 or (888) 217-1203 or email us at claim@utah.gov."
+                }
+            ],
+            "Evidence": [
+                {
+                    "question": "How do I obtain or provide proof of previous address?",
+                    "answer": "A copy of an old bill, e.g., a utility bill, a copy of an old tax return, or old correspondence will suffice. Anything that officially lists your previous address is sufficient. If you're unsure, contact our office for help."
+                },
+                {
+                    "question": "What if I lost or do not have my social security card?",
+                    "answer": "A copy of a tax return, insurance card, or any other document that shows your social security number will suffice. If you're unsure, contact our office for help."
+                },
+                {
+                    "question": "How do I provide proof of name change?",
+                    "answer": "A copy of a marriage certificate or court document showing the name change is sufficient."
+                },
+                {
+                    "question": "Are you the Original Owner?",
+                    "answer": "Please submit the following evidence to support your claim:\n\nProvide a clear copy of your official photo identification or have the claim form notarized.\n\nProvide proof of your social security number.\n\nProvide proof that you or the original owner lived or received mail at the address listed on our web site.\nExamples of address proof may include:\n\n\u2022 Auto Registration\n\n\u2022 Driver\u2019s License\n\n\u2022 Birth, Death, or Marriage Certificate\n\n\u2022 Income Tax returns\n\n\u2022 Postmarked envelope addressed to you\n\n\u2022 Bank or Utility Statement\n\n\u2022 Medicare card or Insurance Policy\n\n\u2022 Credit Report\n\n\u2022 School Transcripts\n\n\u2022 Court Documents"
+                },
+                {
+                    "question": "Are you claiming on behalf of an Owner who is living?",
+                    "answer": "Please submit the following evidence to support your claim:\n\nProvide a clear copy of your official photo identification or have the claim form notarized.\n\nProvide proof of your social security number.\n\nProvide proof that you or the original owner lived or received mail at the address listed on the web site.\n\nProvide current evidence of your authority to act on behalf of the original owner. If you are acting as an Attorney in Fact for the original owner then you must also provide a clear copy of their official photo identification. If the original owner does not have official photo identification due to incapacity provide a notarized statement of identity from a care provider on company letterhead."
+                },
+                {
+                    "question": "Are you claiming for an Owner who is deceased?",
+                    "answer": "Provide the additional evidence required for each question answered yes.\n\nDid the Decedent have a Valid Will? Is an application for appointment of Personal Representative pending or has a Personal Representative been appointed? Is the value of the Decedent\u2019s estate above one-hundred thousand dollars ($100,000)?\n\nAlso submit the following evidence to support your claim:\n\nSubmit a completed Affidavit for Collection of Unclaimed Property. It is imperative that you complete EVERY question on the form and provide the supporting documentation directed for each question answered \u2018yes\u2019.\n\nProvide a clear copy of your official photo identification or have the claim form notarized.\n\nProvide proof of the deceased owner\u2019s Social Security number, this information can normally be found on the Death Certificate. Providing the decedent\u2019s Social Security number is optional; however, if you choose not to provide this evidence there may be insufficient information available to determine ownership and may result in your claim being denied. If this evidence is provided it will only be disclosed to Section Staff involved in paying your claim and to the federal government as required by law.\n\nProvide verification that the deceased owner of the property you are claiming lived or received mail at the address reported by the original holder of the unclaimed property. The last known address can be found by looking up the property at https://mycash.utah.gov/app/claim-search."
+                },
+                {
+                    "question": "Are you claiming for a Business Entity?",
+                    "answer": "Provide the additional evidence required for each question answered yes.\n\nThis business is/was a sole proprietorship\n\nThis business is a partnership.\n\nThis business is a corporation.\n\nAlso submit the following evidence to support your claim:\n\nProvide a clear copy of your official photo identification or have the claim form notarized.\n\nProvide proof of your business Federal Employee's Identification Number (FEIN).\n\nProvide proof that you or the original owner lived or received mail at the address listed on the web site."
+                }
+            ],
+            "Reporting Property": [
+                {
+                    "question": "Who is required to report unclaimed property?",
+                    "answer": "If your legal entity is a business association (corporation, partnership, etc.), governmental agency, or nonprofit you are probably required to file annual reports of unclaimed property."
+                },
+                {
+                    "question": "Why do corporations have to report unclaimed property?",
+                    "answer": "Unclaimed property laws were enacted to prevent holders of unclaimed property from taking citizens unclaimed property and recognizing it as business income. This law gives the state an opportunity to return money to its rightful owners and provides Utah citizens with a single source, the Office of the Utah State Treasurer, Unclaimed Property Division for unclaimed property that has been reported by holders from Utah and around the nation."
+                },
+                {
+                    "question": "How do I report?",
+                    "answer": "The Office of the Utah State Treasurer Unclaimed Property Division requires online reporting. Report property electronically in 3 easy steps:\n\n2. Create your NAUPA formatted report usingUPExchange (HDE files no longer accepted)\n\n3. Submit your report via the Website\n\n4. Submit your payment\nOnline payment\nPhysical check payable to Utah State Treasurer Include your FEIN on check and mail to:\nUtah Unclaimed Property\nPO Box 142321\nSalt Lake City, UT 84114-2321\n\n5. Online payment\n\n6. Physical check payable to Utah State Treasurer Include your FEIN on check and mail to:\nUtah Unclaimed Property\nPO Box 142321\nSalt Lake City, UT 84114-2321"
+                },
+                {
+                    "question": "When do I report?",
+                    "answer": "Utah has a November 1 annual reporting deadline."
+                },
+                {
+                    "question": "What is due diligence?",
+                    "answer": "1. Must be performed not more than one hundred eighty (180) days prior to report for submission \u2014 After May 5, but no later than September 5, Due diligence must be performed no more than one hundred eighty (180) days, or no less than sixty (60) days, prior to the filing of the report.\n\n2. Mail notifications must be sent to property owners by first class mail or better at their last known address.\n\nElectronic mail communication is an acceptable form of communication for due diligence"
+                },
+                {
+                    "question": "What if I have no unclaimed property?",
+                    "answer": "\u201cNegative\u201d or \u201cZero\u201d annual reports reflecting that no unclaimed property is held by the holder or business enterprise are not statutorily required"
+                },
+                {
+                    "question": "Can I be audited and penalties imposed?",
+                    "answer": "Yes. The Unclaimed Property Act does provide for interest, penalties and fees, when warranted from an audit or non-compliance"
+                },
+                {
+                    "question": "What are the filing requirements for an annual report?",
+                    "answer": "Utah\u2019s reporting period is yearly and the dormancy periods are calculated as of June 30th. Annual reports containing property reportable as of June 30th are to be remitted by November 1st. See our holder booklet for dormancy periods. (Most are 3 years)"
+                },
+                {
+                    "question": "How does a holder file a report?",
+                    "answer": "Holders are required to file reports electronically. Manual entry reports can be completed via website. HDE files (HRS program) no longer accepted."
+                },
+                {
+                    "question": "Can I see the wording of the Utah Unclaimed Property Act?",
+                    "answer": "Utah Unclaimed Property Act"
+                },
+                {
+                    "question": "What if I submitted a property in error?",
+                    "answer": "If you submitted property in error, you can submit a request for reimbursement of the property. Click here for the reimbursement form."
+                },
+                {
+                    "question": "Are safe deposit boxes reported the same way other property is reported?",
+                    "answer": "Yes. They are reported in the same manner however, we request the safe deposit box report to be separate from your regular annual report."
+                },
+                {
+                    "question": "When are safe deposit box contents due to your office?",
+                    "answer": "Tangible property held in a safe deposit box or other safekeeping depository shall be delivered to the State of Utah not later than thirty (30) days after the date the report describing the property is filed."
+                },
+                {
+                    "question": "How do I report securities and mutual funds?",
+                    "answer": "Please visit the securities registration page\n\n\u2022 Non-freely transferable securities are no longer reportable.\n\n\u2022 \u201cNon-freely transferable security\u201d includes a worthless security\n\n\u2022 Utah no longer accepts fractional shares. Dividends must be paid in cash."
+                },
+                {
+                    "question": "Are gift cards or gift certificates reportable?",
+                    "answer": "True gift cards and gift certificates are exempt. However, if the card is registered with a name and a Utah address and is redeemable for cash then it is reportable."
+                }
+            ],
+            "Fee Finder": [
+                {
+                    "question": "What/Who is a Fee Finder?",
+                    "answer": "A Fee Finder (Heir/Certified Finder) is a person that seeks to find Unclaimed Property and return it to rightful property owners (or heirs) for a fee."
+                },
+                {
+                    "question": "Is a percentage set by Utah for fee finding?",
+                    "answer": "Yes, 20 percent. See Utah Administrative Rule R966-1-36."
+                },
+                {
+                    "question": "Are there guidelines that Fee Finders must follow?",
+                    "answer": "Yes. They must follow the provisions of the Unclaimed Property Act, Utah Code Annotated, Title 67, Chapter 4a and Utah Administrative Rule R966-1-36. Some of the key stipulations are provided in the additional FAQ's that follow."
+                },
+                {
+                    "question": "Are there any time requirements?",
+                    "answer": "Yes. Fee Finders must wait 24 months after the delivery of any property to the Unclaimed Property Division before any agreement they make to recover or assist in the recovery of that property is valid."
+                },
+                {
+                    "question": "How do I gain access to the Unclaimed Property records?",
+                    "answer": "The information that is not private can be searched online at our website. Anyone can search our online database to review the properties available. Unclaimed Property records of this office are classified as private data as described in the \"Government Records Access Management Act.\" We do not give or sell a list of individuals or properties that will be used for commercial purposes. Claim forms for specific properties may be submitted by:\nThe reported owner;\nIn the case of property reported in the name of a deceased person, the executor, administrator, or personal representative of an owner's estate, or an heir if there is no will or the probate is closed; or\nA second party (such as a fee finder) upon receipt of a power of attorney signed by the owner(s) or, in the case of a deceased person, signed by the personal representative or legal heir, if there is no will or probate has closed."
+                },
+                {
+                    "question": "Are there any special requirements regarding the power of attorney?",
+                    "answer": "The original power of attorney must be submitted to this office. Copies are not acceptable.\nSpecific authorization must be given for this office to release the information from Government Private Data Files.\nThe power of attorney CANNOT contain any contractual provisions (such as fee or percentage charged, etc.). Any powers containing contractual provisions will be returned as unacceptable. The finder contract must be a separate document and a copy should be sent to this office along with the power of attorney.\nPowers of attorney will not be accepted from banks or other financial institutions or State agencies.\nPowers of attorney signed on behalf of a corporation, business, or any federal agency must be signed by an official with authority to commit the corporation or business to the fee-finding agreement. Proof of the signer's association with the entity and authority to enter into contracts for the entity must be sent with the power of attorney.\nInstructions on payment. Only one check is prepared.\nIf the check is to be made out in both names (i.e., claimant and fee finder), specific mailing instructions are required. The check will be mailed to the claimant, unless specific instructions indicate otherwise.\nIf the check is to be made out in the name of the fee finder only, the power of attorney must specifically grant authority to sign the claim form and receive payment on behalf of the owner.\nA separate fee agreement that demonstrates that fees to be charged comply with the 20% fee limitation for Utah unclaimed property division."
+                }
+            ],
+            "Useful Links": [
+                {
+                    "question": "https://www.utah.gov/index.html",
+                    "answer": "[https://www.utah.gov/index.html](https://www.utah.gov/index.html)"
+                },
+                {
+                    "question": "https://treasurer.utah.gov/",
+                    "answer": "[https://treasurer.utah.gov/](https://treasurer.utah.gov/)"
+                },
+                {
+                    "question": "https://unclaimed.org/",
+                    "answer": "[https://unclaimed.org/](https://unclaimed.org/)"
+                },
+                {
+                    "question": "www.missingmoney.com",
+                    "answer": "[www.missingmoney.com](http://www.missingmoney.com)"
+                }
+            ]
+        },
+        "total_count": 44
+    }
+}

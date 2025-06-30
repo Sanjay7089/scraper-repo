@@ -1,0 +1,255 @@
+
+AWSTemplateFormatVersion: '2010-09-09'
+Description: CloudFormation stack to deploy a Lambda function using an existing ECR image, scheduled weekly on Fridays (Mountain Time) via EventBridge Scheduler, with S3 output storage and DLQ for error handling.
+
+Parameters:
+  EnvName:
+    Description: Environment name (e.g., dev, staging, prod)
+    Type: String
+    AllowedValues: ['dev', 'staging', 'prod']
+    ConstraintDescription: Must be one of dev, staging, or prod
+
+  EcrImageUri:
+    Type: String
+    Description: URI of the existing ECR image for the Lambda function
+    Default:  '<account id>.dkr.ecr.us-east-1.amazonaws.com/scraper-with-playwright-repo:latest'
+
+  S3BucketName:
+    Type: String
+    Description: Name of the S3 bucket to store FAQ data
+    Default: 'my-faq-scraper-bucket-<account id>'
+
+  ScheduleTimezone:
+    Type: String
+    Description: Timezone for the EventBridge schedule (Utah uses Mountain Time)
+    Default: 'America/Denver'
+
+  ScheduleCronExpression:
+    Type: String
+    Description: Cron expression for weekly schedule (every Friday at 8:00 AM Mountain Time)
+    Default: 'cron(0 8 ? * FRI *)'
+
+Resources:
+  # KMS Key for S3 encryption
+  KMSKey:
+    Type: AWS::KMS::Key
+    Properties:
+      Description: KMS key for FAQ bucket encryption
+      KeyPolicy:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub 'arn:aws:iam::${AWS::AccountId}:root'
+            Action: kms:*
+            Resource: '*'
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action:
+              - kms:Encrypt
+              - kms:Decrypt
+              - kms:GenerateDataKey
+            Resource: '*'
+      Tags:
+        - Key: Environment
+          Value: !Ref EnvName
+        - Key: Project
+          Value: FAQScraper
+
+  # S3 Bucket for FAQ Data
+  FAQBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref S3BucketName
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: aws:kms
+              KMSMasterKeyID: !GetAtt KMSKey.Arn
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      LifecycleConfiguration:
+        Rules:
+          - Id: DeleteOldVersions
+            Status: Enabled
+            NoncurrentVersionExpirationInDays: 30
+      Tags:
+        - Key: Environment
+          Value: !Ref EnvName
+        - Key: Project
+          Value: FAQScraper
+
+  # Lambda Execution Role
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${AWS::StackName}-LambdaExecutionRole'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: LambdaPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: S3Access
+                Effect: Allow
+                Action:
+                  - s3:PutObject
+                  - s3:GetObject
+                Resource: !Sub '${FAQBucket.Arn}/*'
+              - Sid: ECRAccess
+                Effect: Allow
+                Action:
+                  - ecr:BatchGetImage
+                  - ecr:GetDownloadUrlForLayer
+                Resource: !Sub 'arn:aws:ecr:${AWS::Region}:${AWS::AccountId}:repository/scraper-with-playwright-repo'
+              - Sid: LogsAccess
+                Effect: Allow
+                Action:
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/faq-scraper-function-${EnvName}:*'
+              - Sid: KMSAccess
+                Effect: Allow
+                Action:
+                  - kms:Encrypt
+                  - kms:Decrypt
+                  - kms:GenerateDataKey
+                Resource: !GetAtt KMSKey.Arn
+              - Sid: SQSAccess
+                Effect: Allow
+                Action: 
+                  - sqs:SendMessage
+                Resource: "*"
+            
+
+
+  # Lambda Function
+  FAQScraperLambda:
+    Type: AWS::Lambda::Function
+    Metadata:
+      guard:
+        SuppressedRules:
+          - LAMBDA_INSIDE_VPC
+          - LAMBDA_FUNCTION_PUBLIC_ACCESS_PROHIBITED
+    Properties:
+      FunctionName: !Sub faq-scraper-${EnvName}
+      Description: FAQ scraper using Playwright
+      PackageType: Image
+      Code:
+        ImageUri: !Ref EcrImageUri
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Timeout: 900  # 15 minutes for web scraping
+      MemorySize: 2048  # Increased for Playwright
+      EphemeralStorage:
+        Size: 1024  # 1GB for Playwright browser cache
+      Environment:
+        Variables:
+          BUCKET_NAME: !Ref S3BucketName
+      TracingConfig:
+        Mode: Active
+      Tags:
+        - Key: Environment
+          Value: !Ref EnvName
+        - Key: Project
+          Value: FAQScraper
+
+
+
+  # EventBridge Scheduler Role
+  SchedulerExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${AWS::StackName}-SchedulerExecutionRole'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: scheduler.amazonaws.com
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals:
+                aws:SourceAccount: !Ref AWS::AccountId
+      Policies:
+        - PolicyName: LambdaInvoke
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: lambda:InvokeFunction
+                Resource: !GetAtt FAQScraperLambda.Arn
+
+
+  # EventBridge Schedule
+  WeeklyFAQSchedule:
+    Type: AWS::Scheduler::Schedule
+    Properties:
+      Name: !Sub '${AWS::StackName}-WeeklyFAQScraper'
+      Description: Triggers FAQScraper Lambda every Friday at 8:00 AM Mountain Time
+      FlexibleTimeWindow:
+        Mode: "OFF"
+      ScheduleExpression: !Ref ScheduleCronExpression
+      ScheduleExpressionTimezone: !Ref ScheduleTimezone
+      State: ENABLED
+      Target:
+        Arn: !GetAtt FAQScraperLambda.Arn
+        RoleArn: !GetAtt SchedulerExecutionRole.Arn
+        Input: '{"source": "EventBridge", "scheduled": true}'
+        RetryPolicy:
+          MaximumEventAgeInSeconds: 86400  # 24 hours
+          MaximumRetryAttempts: 2
+
+  # CloudWatch Log Group for Lambda
+  LambdaLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/faq-scraper-${EnvName}'
+      RetentionInDays: 14
+      Tags:
+        - Key: Environment
+          Value: !Ref EnvName
+        - Key: Project
+          Value: FAQScraper
+ 
+
+Outputs:
+  LambdaFunctionArn:
+    Description: ARN of the FAQ Scraper Lambda function
+    Value: !GetAtt FAQScraperLambda.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-LambdaArn'
+
+  S3BucketName:
+    Description: Name of the S3 bucket for FAQ data
+    Value: !Ref S3BucketName
+    Export:
+      Name: !Sub '${AWS::StackName}-S3Bucket'
+
+  S3BucketArn:
+    Description: ARN of the S3 bucket
+    Value: !GetAtt FAQBucket.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-S3BucketArn'
+
+  ScheduleArn:
+    Description: ARN of the EventBridge Schedule
+    Value: !GetAtt WeeklyFAQSchedule.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-ScheduleArn'
